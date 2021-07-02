@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/imdario/mergo"
+	"gomodules.xyz/mergo"
 )
 
 type settings struct {
