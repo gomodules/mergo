@@ -1,4 +1,4 @@
-module github.com/imdario/mergo
+module gomodules.xyz/mergo
 
 go 1.13
 

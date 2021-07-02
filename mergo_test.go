@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/imdario/mergo"
+	"gomodules.xyz/mergo"
 	"gopkg.in/yaml.v2"
 )
 

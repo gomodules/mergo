@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/imdario/mergo"
+	"gomodules.xyz/mergo"
 )
 
 const issue138configuration string = `

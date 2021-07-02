@@ -1,7 +1,7 @@
 package mergo_test
 
 import (
-	"github.com/imdario/mergo"
+	"gomodules.xyz/mergo"
 	"reflect"
 	"testing"
 )
