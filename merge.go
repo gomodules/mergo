@@ -296,6 +296,24 @@ func Merge(dst, src interface{}, opts ...func(*Config)) error {
 	return merge(dst, src, opts...)
 }
 
+type NullTransformer struct {}
+
+func NewNullTransformer() *NullTransformer {
+    return &NullTransformer{}
+}
+
+func (t *NullTransformer) Transformer(typ reflect.Type) func(dst, src reflect.Value) error {
+    if typ.Kind() == reflect.Ptr {
+        return func(dst, src reflect.Value) error {
+            if dst.CanSet() && !src.IsNil() {
+                dst.Set(src)
+            }
+            return nil
+        }
+    }
+    return nil
+}
+
 // MergeWithOverwrite will do the same as Merge except that non-empty dst attributes will be overridden by
 // non-empty src attribute values.
 // Deprecated: use Merge(…) with WithOverride
