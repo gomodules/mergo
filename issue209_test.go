@@ -3,7 +3,7 @@ package mergo_test
 import (
 	"testing"
 
-	"github.com/imdario/mergo"
+	"gomodules.xyz/mergo"
 )
 
 func TestIssue209(t *testing.T) {
