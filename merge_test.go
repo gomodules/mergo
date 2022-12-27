@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"gomodules.xyz/mergo"
+	"gomodules.xyz/pointer"
 )
 
 type transformer struct {
@@ -93,11 +94,11 @@ type data struct {
 
 func TestMergeBoolPointerWithNullTransformer(t *testing.T) {
 	dst := data{
-		B: func(v bool) *bool { return &v }(true),
+		B: pointer.BoolP(true),
 	}
 
 	src := data{
-		B:func(v bool) *bool { return &v }(false),
+		B: pointer.BoolP(false),
 	}
 
 	err := mergo.Merge(&dst, src, mergo.WithOverride, mergo.WithTransformers(mergo.NewNullTransformer()))
