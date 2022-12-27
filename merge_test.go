@@ -86,3 +86,26 @@ func TestMapNonPointer(t *testing.T) {
 		t.Errorf("want: %s, got: %s", want, got)
 	}
 }
+
+type data struct {
+	B *bool
+}
+
+func TestMergeBoolPointerWithNullTransformer(t *testing.T) {
+	dst := data{
+		B: func(v bool) *bool { return &v }(true),
+	}
+
+	src := data{
+		B:func(v bool) *bool { return &v }(false),
+	}
+
+	err := mergo.Merge(&dst, src, mergo.WithOverride, mergo.WithTransformers(mergo.NewNullTransformer()))
+	if err != nil {
+		t.Error(err)
+	}
+
+	if *dst.B != *src.B{
+		t.Errorf("src not merged in properly: dst.B.Value(%v) != expected(%v)", *dst.B, *src.B)
+	}
+}
