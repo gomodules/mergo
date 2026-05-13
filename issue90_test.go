@@ -1,20 +1,20 @@
 package mergo_test
 
 import (
-	"gomodules.xyz/mergo"
 	"reflect"
 	"testing"
+
+	"gomodules.xyz/mergo"
 )
 
 type structWithStringMap struct {
 	Data map[string]string
 }
 
-
 func TestIssue90(t *testing.T) {
-    dst := map[string]structWithStringMap{
-    	"struct": {
-    		Data: nil,
+	dst := map[string]structWithStringMap{
+		"struct": {
+			Data: nil,
 		},
 	}
 	src := map[string]structWithStringMap{

@@ -13,7 +13,7 @@ func TestMergeWithTransformerZeroValue(t *testing.T) {
 	type fooWithBoolPtr struct {
 		b *bool
 	}
-	var Bool = func(b bool) *bool { return &b }
+	Bool := func(b bool) *bool { return &b }
 	a := fooWithBoolPtr{b: Bool(false)}
 	b := fooWithBoolPtr{b: Bool(true)}
 

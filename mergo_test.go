@@ -537,6 +537,7 @@ func TestMergeUsingStructAndMap(t *testing.T) {
 		})
 	}
 }
+
 func TestMaps(t *testing.T) {
 	m := map[string]simpleTest{
 		"a": {},

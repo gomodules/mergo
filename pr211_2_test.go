@@ -6,8 +6,7 @@ import (
 	"time"
 )
 
-type transformer struct {
-}
+type transformer struct{}
 
 func (s *transformer) Transformer(t reflect.Type) func(dst, src reflect.Value) error {
 	return nil
